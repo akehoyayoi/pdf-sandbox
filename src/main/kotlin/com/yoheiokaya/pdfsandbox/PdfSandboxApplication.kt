@@ -7,5 +7,6 @@ import org.springframework.boot.runApplication
 class PdfSandboxApplication
 
 fun main(args: Array<String>) {
+	System.setProperty("jsse.enableSNIExtension", "false")
 	runApplication<PdfSandboxApplication>(*args)
 }
