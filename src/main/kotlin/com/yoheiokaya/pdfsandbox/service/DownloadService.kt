@@ -3,18 +3,15 @@ package com.yoheiokaya.pdfsandbox.service
 import org.springframework.http.HttpEntity
 import org.springframework.http.HttpHeaders
 import org.springframework.http.HttpMethod
-import org.springframework.stereotype.Component
+import org.springframework.stereotype.Service
 import org.springframework.web.client.RestTemplate
+import java.io.File
 import java.nio.file.Files
-import kotlin.io.path.ExperimentalPathApi
-import kotlin.io.path.absolutePathString
 
-@Component
+@Service
 class DownloadService(val restTemplate: RestTemplate) {
 
-    // TODO: @OptIn should be removed after 1.0 release for absolutePathString
-    @OptIn(ExperimentalPathApi::class)
-    fun download(url: String): String? {
+    fun download(url: String): File {
 
         val httpHeader = HttpHeaders()
         httpHeader.add(HttpHeaders.ACCEPT, "application/pdf")
@@ -26,8 +23,8 @@ class DownloadService(val restTemplate: RestTemplate) {
                 ByteArray::class.java
         )
 
-        val path = Files.createTempFile("temp",".pdf")
-        Files.write(path, response.body)
-        return path.absolutePathString()
+        val pdfFile = Files.createTempFile("temp",".pdf")
+        Files.write(pdfFile, response.body)
+        return pdfFile.toFile()
     }
 }

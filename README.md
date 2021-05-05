@@ -17,4 +17,19 @@ This api will transcribe specified text to PDF that specified URL.
 (sv) --> (dp)
 
 @enduml
+```
+
+## How to use this API?
+
+```bash
+curl --location --request POST 'http://localhost:8080/v1/transcribe' \
+--header 'Content-Type: application/json' \
+--data-raw '{
+	"url" : "https://www.chofu-across.jp/CMS/wp-content/uploads/2019/06/shinseisho_shisetsu_chusen_r12.pdf",
+	"sentences": 
+	[
+		{"content":"田中一郎", "fontSize": 12.0, "offsetX": 200.0, "offsetY": 660.0}
+	]
+}' > sample.pdf
+```
 
