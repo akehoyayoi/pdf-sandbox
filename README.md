@@ -7,12 +7,14 @@ This api will transcribe specified text to PDF that specified URL.
 ```plantuml
 @startuml
 
-(Download PDF) as (dl)
-(Transcribe text to PDF) as (ts)
-(Save PDF) as (sv)
+(Download original PDF) as (dl)
+(Transcribe text to new PDF) as (ts)
+(Save new PDF) as (sv)
+(Delete original PDF) as (dp)
 
 (dl) --> (ts)
 (ts) --> (sv)
+(sv) --> (dp)
 
 @enduml
 
