@@ -1,12 +1,12 @@
-package com.yoheiokaya.pdfsandbox
+package com.yoheiokaya.pdftranscriber
 
 import org.springframework.boot.autoconfigure.SpringBootApplication
 import org.springframework.boot.runApplication
 
 @SpringBootApplication
-class PdfSandboxApplication
+class PdfTranscriberApplication
 
 fun main(args: Array<String>) {
 	System.setProperty("jsse.enableSNIExtension", "false")
-	runApplication<PdfSandboxApplication>(*args)
+	runApplication<PdfTranscriberApplication>(*args)
 }

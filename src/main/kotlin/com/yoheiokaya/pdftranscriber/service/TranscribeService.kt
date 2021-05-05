@@ -1,10 +1,8 @@
-package com.yoheiokaya.pdfsandbox.service
+package com.yoheiokaya.pdftranscriber.service
 
-import com.yoheiokaya.pdfsandbox.dto.Sentence
+import com.yoheiokaya.pdftranscriber.dto.Sentence
 import org.apache.pdfbox.pdmodel.PDDocument
-import org.apache.pdfbox.pdmodel.PDPage
 import org.apache.pdfbox.pdmodel.PDPageContentStream
-import org.apache.pdfbox.pdmodel.common.PDRectangle
 import org.apache.pdfbox.pdmodel.font.PDType0Font
 import org.springframework.stereotype.Service
 import java.io.File

@@ -1,1 +1,1 @@
-rootProject.name = "pdf-sandbox"
+rootProject.name = "pdf-transcriber"

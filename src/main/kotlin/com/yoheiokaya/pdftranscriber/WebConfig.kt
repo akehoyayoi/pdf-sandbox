@@ -1,4 +1,4 @@
-package com.yoheiokaya.pdfsandbox
+package com.yoheiokaya.pdftranscriber
 
 import org.springframework.context.annotation.Bean
 import org.springframework.context.annotation.Configuration

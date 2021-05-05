@@ -1,4 +1,4 @@
-package com.yoheiokaya.pdfsandbox.service
+package com.yoheiokaya.pdftranscriber.service
 
 import org.springframework.stereotype.Service
 import java.io.File

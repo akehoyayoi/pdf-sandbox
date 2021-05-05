@@ -1,4 +1,4 @@
-# pdf-sandbox
+# PDF transcriber
 
 ## What to do?
 
@@ -17,6 +17,12 @@ This api will transcribe specified text to PDF that specified URL.
 (sv) --> (dp)
 
 @enduml
+```
+
+## How to execute this application on local
+
+```bash
+./gradlew bootRun
 ```
 
 ## How to use this API?
