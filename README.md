@@ -4,6 +4,27 @@
 
 This api will transcribe specified text to PDF that specified URL.
 
+PDF + sentences -> transcribed PDF
+
+![Before Image](doc/00_before.png)
+
++
+
+```json
+{
+	"url" : "pdf's URL",
+	"sentences": 
+	[
+		{"content":"田中一郎", "fontSize": 12.0, "offsetX": 200.0, "offsetY": 660.0}
+	]
+}
+```
+
+|
+v
+
+![After Image](doc/01_after.png)
+
 ```plantuml
 @startuml
 
