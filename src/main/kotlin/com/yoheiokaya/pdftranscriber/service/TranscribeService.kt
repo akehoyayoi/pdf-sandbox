@@ -14,16 +14,19 @@ class TranscribeService {
     fun transcribe(pdfFile: File, sentences: Array<Sentence>): File? {
         try {
             val document = PDDocument.load(pdfFile)
-            val page = document.getPage(0)
             val classLoader = javaClass.classLoader
             val font = PDType0Font.load(document, File(classLoader.getResource("ipaexg.ttf").file))
-            PDPageContentStream(document, page, PDPageContentStream.AppendMode.PREPEND, true).use { contentStream ->
-                sentences.forEach { sentence ->
-                    contentStream.beginText()
-                    contentStream.setFont(font, sentence.fontSize)
-                    contentStream.newLineAtOffset(sentence.offsetX, sentence.offsetY)
-                    contentStream.showText(sentence.content)
-                    contentStream.endText()
+            val sentenceMap = sentences.groupBy({ it.page } ,{ it })
+            sentenceMap.forEach { (page, values) ->
+                val page = document.getPage(page)
+                PDPageContentStream(document, page, PDPageContentStream.AppendMode.PREPEND, true).use { contentStream ->
+                    values.forEach { sentence ->
+                        contentStream.beginText()
+                        contentStream.setFont(font, sentence.fontSize)
+                        contentStream.newLineAtOffset(sentence.offsetX, sentence.offsetY)
+                        contentStream.showText(sentence.content)
+                        contentStream.endText()
+                    }
                 }
             }
             document.save("test.pdf")
